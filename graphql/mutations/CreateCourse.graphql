@@ -1,0 +1,10 @@
+mutation CreateCourse($input: CourseInput!) {
+  createCourse(input: $input) {
+    course {
+      id
+      title
+    }
+    error
+  }
+}
+

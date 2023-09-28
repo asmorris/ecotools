@@ -1,0 +1,11 @@
+mutation UpdateCourse($input: CourseUpdateInput!) {
+  updateCourse(input: $input) {
+    course {
+      id
+      title
+      description
+    }
+    error
+  }
+}
+
