@@ -25,6 +25,7 @@ const nextConfig = {
   swcMinify: true,
   images: {
     domains: [
+      'utfs.io',
       'images.unsplash.com',
       'localhost',
       'lh3.googleusercontent.com',

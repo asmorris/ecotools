@@ -1,8 +1,0 @@
-query GetCourse($id: String!) {
-  course(id: $id) {
-    id
-    title
-    description
-  }
-}
-
