@@ -26,6 +26,7 @@
     "cmdk": "^0.2.0",
     "eslint": "8.50.0",
     "eslint-config-next": "13.5.2",
+    "framer-motion": "^10.16.4",
     "graphql": "^16.8.1",
     "graphql-tag": "^2.12.6",
     "lucide-react": "^0.279.0",
