@@ -1,6 +1,6 @@
 'use client'
 
-import toast from "react-hot-toast";
+import { toast } from "sonner";
 
 import { ourFileRouter } from "@/app/api/uploadthing/core";
 import { UploadDropzone } from "@/lib/uploadthing"
