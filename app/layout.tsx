@@ -21,7 +21,9 @@ export default function RootLayout({
       <body className={inter.className}>
         <ApolloWrapper>
           <ToastProvider />
-          {children}
+          <main className="flex w-full h-full text-background bg-foreground">
+            {children}
+          </main>
         </ApolloWrapper>
       </body>
     </html>
