@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 import {
+  FileInput,
   ImageIcon,
   LayoutDashboard,
   MessageSquare,
@@ -26,9 +27,15 @@ const routes = [
     color: "text-sky-500",
   },
   {
-    label: "ChatGpt",
+    label: "Transfer File",
+    icon: FileInput,
+    href: "/transfer",
+    color: "text-emerald-500",
+  },
+  {
+    label: "Conversation",
     icon: MessageSquare,
-    href: "/chatgpt",
+    href: "/conversation",
     color: "text-violet-500",
   },
   {

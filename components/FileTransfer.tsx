@@ -63,7 +63,7 @@ export const FileTransfer = () => {
   return (
     <Dialog>
       <DialogTrigger className="flex flex-col gap-4 justify-center items-center text-center w-32 h-24 p-4 bg-slate-200 hover:bg-slate-300 text-slate-700 rounded-lg">
-        <FileInput className="w-6 h-6" />
+        <FileInput className="w-6 h-6 text-emerald-500" />
         <span>Transfer File</span>
       </DialogTrigger>
       <DialogContent>
