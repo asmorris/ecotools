@@ -8,14 +8,14 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { Button } from "./ui/button";
-import { Input } from "./ui/input";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
-import { Dialog, DialogClose, DialogContent, DialogTrigger } from "./ui/dialog";
-import { Textarea } from "./ui/textarea";
+import { Dialog, DialogClose, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { Textarea } from "@/components/ui/textarea";
 import { FileUpload } from "./FileUpload";
 import { FileInput, MailCheck } from "lucide-react";
 import { motion } from "framer-motion";
