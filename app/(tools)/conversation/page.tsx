@@ -63,7 +63,7 @@ const ConversationPage = () => {
   console.log(messages);
 
   return (
-    <div className="w-full max-w-7xl">
+    <div className="w-full max-w-4xl mx-auto">
       <Heading
         title="Conversation"
         description="Chat with our most advanced model"
