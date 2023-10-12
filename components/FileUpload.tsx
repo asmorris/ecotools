@@ -12,6 +12,7 @@ interface FileUploadProps {
 
 export const FileUpload = ({ onChange, endpoint }: FileUploadProps) => {
   return(
+    <div className="bg-slate-900 rounded-lg">
     <UploadDropzone
       endpoint={endpoint}
       onClientUploadComplete={(res) => {
@@ -20,5 +21,6 @@ export const FileUpload = ({ onChange, endpoint }: FileUploadProps) => {
       onUploadError={(error: Error) => {
         toast.error(`${error?.message}`)
       }} />
+      </div>
   )
 }
