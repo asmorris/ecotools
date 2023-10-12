@@ -11,8 +11,12 @@ import { ChatCompletionMessageParam } from "openai/resources/chat/index.mjs";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
-import axios from 'axios'
+import axios from "axios";
 import { Empty } from "@/components/Empty";
+import { Loader } from "@/components/Loader";
+import { cn } from "@/lib/utils";
+import { UserAvatar } from "@/components/UserAvatar";
+import { BotAvatar } from "@/components/BotAvatar";
 
 const formSchema = z.object({
   prompt: z.string().min(1, {
@@ -27,34 +31,36 @@ const ConversationPage = () => {
       prompt: "",
     },
   });
-  const router = useRouter()
-  const [messages, setMessages] = useState<ChatCompletionMessageParam[]>([])
+  const router = useRouter();
+  const [messages, setMessages] = useState<ChatCompletionMessageParam[]>([]);
 
   const { isSubmitting } = form.formState;
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       const userMessage: ChatCompletionMessageParam = {
-        role: 'user',
-        content: values.prompt
-      }
+        role: "user",
+        content: values.prompt,
+      };
 
-      const newMessages = [...messages, userMessage]
+      const newMessages = [...messages, userMessage];
 
-      const response = await axios.post('/api/conversation', {
-        messages: newMessages
-      })
+      const response = await axios.post("/api/conversation", {
+        messages: newMessages,
+      });
 
-      setMessages(current => [...current, userMessage, response.data])
+      setMessages((current) => [...current, userMessage, response.data]);
 
-      form.reset()
+      form.reset();
     } catch (error: any) {
       // TODO: Open Pro modal
-      console.error(error)
+      console.error(error);
     } finally {
-      router.refresh() 
+      router.refresh();
     }
   };
+
+  console.log(messages);
 
   return (
     <div className="w-full max-w-7xl">
@@ -87,20 +93,40 @@ const ConversationPage = () => {
                 </FormItem>
               )}
             />
-            <Button type='submit' className="col-span-12 lg:col-span-2 w-full" disabled={isSubmitting}>Generate</Button>
+            <Button
+              type="submit"
+              className="col-span-12 lg:col-span-2 w-full"
+              disabled={isSubmitting}
+            >
+              Generate
+            </Button>
           </form>
         </Form>
       </div>
       <div className="space-y-4 mt-4">
-        {messages.length === 0 && !isSubmitting && (
-        <div>
-          <Empty label="No conversation started" />
-        </div>
+        {isSubmitting && (
+          <div className="ml-8 mr-8 p-8 rounded-lg flex items-center justify-center bg-slate-800">
+            <Loader />
+          </div>
         )}
-        <div className="flex flex-col-reverse gap-y-4">
-          {messages.map(message => (
-            <div key={message.content}>
-              {message.content}
+        {messages.length === 0 && !isSubmitting && (
+          <div>
+            <Empty label="No conversation started" />
+          </div>
+        )}
+        <div className="flex flex-col-reverse gap-y-4 pl-8 pr-8">
+          {messages.map((message) => (
+            <div
+              key={message.content}
+              className={cn(
+                "p-8 w-full flex items-start gap-x-8 rounded-lg",
+                message.role === "user"
+                  ? "bg-slate-800 border border-slate-700"
+                  : "bg-violet-800",
+              )}
+            >
+              {message.role === "user" ? <UserAvatar /> : <BotAvatar />}
+              <p className="text-sm">{message.content}</p>
             </div>
           ))}
         </div>
