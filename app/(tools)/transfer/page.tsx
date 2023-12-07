@@ -68,7 +68,6 @@ const FileTransfer = () => {
         icon={FileInput}
         iconColour="text-emerald-500"
         bgColour="bg-emerald-500/10"
-        wrapperClass="-ml-8"
       />
 
       <Form {...form}>
@@ -166,7 +165,7 @@ const FileTransfer = () => {
             </>
           )}
           <div className="flex gap-x-8">
-            <Button disabled={isSubmitting} type="submit">
+            <Button disabled={isSubmitting} type="submit" className="bg-violet-800">
               Transfer
             </Button>
           </div>

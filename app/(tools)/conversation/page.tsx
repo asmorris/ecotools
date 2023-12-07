@@ -60,10 +60,8 @@ const ConversationPage = () => {
     }
   };
 
-  console.log(messages);
-
   return (
-    <div className="w-full max-w-4xl mx-auto">
+    <div className="w-full max-w-4xl mx-auto px-4 lg:p-0">
       <Heading
         title="Conversation"
         description="Chat with our most advanced model"
@@ -72,7 +70,7 @@ const ConversationPage = () => {
         bgColour="bg-violet-500/10"
       />
 
-      <div className="px-4 lg:px-8">
+      <div className="px-4 lg:p-0">
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
@@ -95,7 +93,7 @@ const ConversationPage = () => {
             />
             <Button
               type="submit"
-              className="col-span-12 lg:col-span-2 w-full"
+              className="col-span-12 lg:col-span-2 w-full bg-violet-800"
               disabled={isSubmitting}
             >
               Generate

@@ -7,7 +7,7 @@ export const Loader = () => {
       <div className="w-10 h-10 relative animate-spin duration-[2000ms]">
         <Image alt="logo" fill src="/logo.svg" />
       </div>
-      <p className="text-sm text-slate-300 bg-slate-800">We on this</p>
+      <p className="text-sm text-slate-300 bg-slate-800">Crafting your answer...</p>
     </div>
   );
 };

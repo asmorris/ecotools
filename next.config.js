@@ -29,6 +29,7 @@ const nextConfig = {
       'images.unsplash.com',
       'localhost',
       'lh3.googleusercontent.com',
+      'oaidalleapiprodscus.blob.core.windows.net'
     ],
   },
   webpack: (config) => {
